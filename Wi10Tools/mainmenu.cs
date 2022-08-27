@@ -36,7 +36,6 @@ namespace Wi10Tools
             ps.AddScript("get-appxpackage *bing* | remove-appxpackage");
             ps.AddScript("get-appxpackage *feedback* | remove-appxpackage");
             ps.AddScript("get-appxpackage *maps* | remove-appxpackage");
-            ps.AddScript("get-appxpackage *people* | remove-appxpackage");
             ps.AddScript("get-appxpackage *messaging* | remove-appxpackage");
             ps.AddScript("get-appxpackage *wallet* | remove-appxpackage");
             ps.AddScript("get-appxpackage *officehub* | remove-appxpackage");
@@ -58,6 +57,7 @@ namespace Wi10Tools
             ps.AddScript("Get-AppxPackage Microsoft.XboxApp | Remove-AppxPackage");
             ps.AddScript("get-appxpackage *windowsstore* | remove-appxpackage");
             ps.AddScript("get-appxpackage *appinstaller* | remove-appxpackage");
+            ps.AddScript("get-appxpackage *Microsoft.MixedReality.Portal* | Remove-AppxPackage");
             ps.AddScript("get-appxpackage *sticky* | remove-appxpackage");
             ps.AddScript("Get-AppxPackage -allusers Microsoft.549981C3F5F10 | Remove-AppxPackage");
             ps.Invoke();
@@ -88,6 +88,16 @@ namespace Wi10Tools
         {
             basicservices basic = new basicservices();
             basic.Show();//open services-1 form
+        }
+
+        private void mainmenu_Load(object sender, EventArgs e)
+        {
+            MessageBox.Show("The application may cause problems on your system. I do not accept any responsibility for any damages that may occur. I recommend creating a system restore point.");
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://github.com/Castaft/Wi10Tools");
         }
     }
 }

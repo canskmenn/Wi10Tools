@@ -26,11 +26,12 @@ namespace Wi10Tools
         {
             PowerShell ps = PowerShell.Create();
             ps.AddScript("get-appxpackage *getstarted* | remove-appxpackage");
-            foreach (var val in deletelist)
+            for (int i = 0; i < deletelist.Count; i++)
             {
-                ps.AddScript(val.ToString());
-
+                ps.AddScript(deletelist[i].ToString()) ;
             }//Deletes all services in the "deletelist" list.
+            
+         
 
             ps.Invoke();
             foreach (var error in ps.Streams.Error)
@@ -77,7 +78,7 @@ namespace Wi10Tools
 
         private void checkBox4_CheckedChanged(object sender, EventArgs e)
         {
-            if (checkBox1.Checked == true)
+            if (checkBox4.Checked == true)
             {
                 deletelist.Add("get-appxpackage *feedback* | remove-appxpackage");
             }
@@ -89,7 +90,7 @@ namespace Wi10Tools
 
         private void checkBox3_CheckedChanged(object sender, EventArgs e)
         {
-            if (checkBox1.Checked == true)
+            if (checkBox3.Checked == true)
             {
                 deletelist.Add("get-appxpackage *maps* | remove-appxpackage");
             }
@@ -101,21 +102,21 @@ namespace Wi10Tools
 
         private void checkBox8_CheckedChanged(object sender, EventArgs e)
         {
-            if (checkBox1.Checked == true)
+            if (checkBox8.Checked == true)
             {
-                deletelist.Add("get-appxpackage *people* | remove-appxpackage");
+               
                 deletelist.Add("get-appxpackage *messaging* | remove-appxpackage");
             }
             else
             {
-                deletelist.Remove("get-appxpackage *people* | remove-appxpackage");
-                deletelist.Remove("get - appxpackage * messaging * | remove - appxpackage");
+               
+                deletelist.Remove("get-appxpackage *messaging* | remove-appxpackage");
             }
         }
 
         private void checkBox7_CheckedChanged(object sender, EventArgs e)
         {
-            if (checkBox1.Checked == true)
+            if (checkBox7.Checked == true)
             {
                 deletelist.Add("get-appxpackage *wallet* | remove-appxpackage");
             }
@@ -127,7 +128,7 @@ namespace Wi10Tools
 
         private void checkBox6_CheckedChanged(object sender, EventArgs e)
         {
-            if (checkBox1.Checked == true)
+            if (checkBox6.Checked == true)
             {
                 deletelist.Add("get-appxpackage *officehub* | remove-appxpackage");
                 deletelist.Add("get-appxpackage -name “Microsoft.Office.Desktop” | Remove-AppxPackage");
@@ -141,7 +142,7 @@ namespace Wi10Tools
 
         private void checkBox9_CheckedChanged(object sender, EventArgs e)
         {
-            if (checkBox1.Checked == true)
+            if (checkBox9.Checked == true)
             {
                 deletelist.Add("get-appxpackage *holographic* | remove-appxpackage");
             }
@@ -153,7 +154,7 @@ namespace Wi10Tools
 
         private void checkBox17_CheckedChanged(object sender, EventArgs e)
         {
-            if (checkBox1.Checked == true)
+            if (checkBox17.Checked == true)
             {
                 deletelist.Add("get-appxpackage *alarms* | remove-appxpackage");
             }
@@ -165,7 +166,7 @@ namespace Wi10Tools
 
         private void checkBox16_CheckedChanged(object sender, EventArgs e)
         {
-            if (checkBox1.Checked == true)
+            if (checkBox16.Checked == true)
             {
                 deletelist.Add("get-appxpackage *photos* | remove-appxpackage");
             }
@@ -177,7 +178,7 @@ namespace Wi10Tools
 
         private void checkBox15_CheckedChanged(object sender, EventArgs e)
         {
-            if (checkBox1.Checked == true)
+            if (checkBox15.Checked == true)
             {
                 deletelist.Add("get-appxpackage *calculator* | remove-appxpackage");
             }
@@ -189,19 +190,19 @@ namespace Wi10Tools
 
         private void checkBox14_CheckedChanged(object sender, EventArgs e)
         {
-            if (checkBox1.Checked == true)
+            if (checkBox14.Checked == true)
             {
-                deletelist.Add("get-appxpackage *camera* | remove-appxpackage");
+                deletelist.Add("Get-AppxPackage *windowscamera* | Remove-AppxPackage");
             }
             else
             {
-                deletelist.Remove("get-appxpackage *camera* | remove-appxpackage");
+                deletelist.Remove("Get-AppxPackage *windowscamera* | Remove-AppxPackage");
             }
         }
 
         private void checkBox13_CheckedChanged(object sender, EventArgs e)
         {
-            if (checkBox1.Checked == true)
+            if (checkBox13.Checked == true)
             {
                 deletelist.Add("get-appxpackage *solitaire* | remove-appxpackage");
             }
@@ -213,7 +214,7 @@ namespace Wi10Tools
 
         private void checkBox20_CheckedChanged(object sender, EventArgs e)
         {
-            if (checkBox1.Checked == true)
+            if (checkBox20.Checked == true)
             {
                 deletelist.Add("get-appxpackage *connectivitystore* | remove-appxpackage");
             }
@@ -225,7 +226,7 @@ namespace Wi10Tools
 
         private void checkBox24_CheckedChanged(object sender, EventArgs e)
         {
-            if (checkBox1.Checked == true)
+            if (checkBox24.Checked == true)
             {
                 deletelist.Add("get-appxpackage *windowsstore* | remove-appxpackage");
             }
@@ -237,7 +238,7 @@ namespace Wi10Tools
 
         private void checkBox10_CheckedChanged(object sender, EventArgs e)
         {
-            if (checkBox1.Checked == true)
+            if (checkBox10.Checked == true)
             {
                 deletelist.Add("get-appxpackage *windowsphone* | remove-appxpackage");
                 deletelist.Add("Get-appxpackage *phone* | Remove-AppxPackage");
@@ -251,7 +252,7 @@ namespace Wi10Tools
 
         private void checkBox25_CheckedChanged(object sender, EventArgs e)
         {
-            if (checkBox1.Checked == true)
+            if (checkBox25.Checked == true)
             {
                 deletelist.Add("Get-AppxPackage -allusers Microsoft.549981C3F5F10 | Remove-AppxPackage");
             }
@@ -263,7 +264,7 @@ namespace Wi10Tools
 
         private void checkBox19_CheckedChanged(object sender, EventArgs e)
         {
-            if (checkBox1.Checked == true)
+            if (checkBox19.Checked == true)
             {
                 deletelist.Add("get-appxpackage *zune* | remove-appxpackage");
             }
@@ -275,7 +276,7 @@ namespace Wi10Tools
 
         private void checkBox18_CheckedChanged(object sender, EventArgs e)
         {
-            if (checkBox1.Checked == true)
+            if (checkBox18.Checked == true)
             {
                 deletelist.Add("get-appxpackage *soundrecorder* | remove-appxpackage");
             }
@@ -287,7 +288,7 @@ namespace Wi10Tools
 
         private void checkBox23_CheckedChanged(object sender, EventArgs e)
         {
-            if (checkBox1.Checked == true)
+            if (checkBox23.Checked == true)
             {
                 deletelist.Add("get-appxpackage *communicationsapps* | remove-appxpackage");
             }
@@ -299,7 +300,7 @@ namespace Wi10Tools
 
         private void checkBox22_CheckedChanged(object sender, EventArgs e)
         {
-            if (checkBox1.Checked == true)
+            if (checkBox22.Checked == true)
             {
                 deletelist.Add("Get-AppxPackage Microsoft.XboxApp | Remove-AppxPackage");
             }
@@ -311,7 +312,7 @@ namespace Wi10Tools
 
         private void checkBox21_CheckedChanged(object sender, EventArgs e)
         {
-            if (checkBox1.Checked == true)
+            if (checkBox21.Checked == true)
             {
                 deletelist.Add("get-appxpackage *sticky* | remove-appxpackage");
             }
@@ -323,7 +324,7 @@ namespace Wi10Tools
 
         private void checkBox5_CheckedChanged(object sender, EventArgs e)
         {
-            if (checkBox1.Checked == true)
+            if (checkBox5.Checked == true)
             {
                 deletelist.Add("get-appxpackage *onenote* | remove-appxpackage");
             }
@@ -335,7 +336,7 @@ namespace Wi10Tools
 
         private void checkBox11_CheckedChanged(object sender, EventArgs e)
         {
-            if (checkBox1.Checked == true)
+            if (checkBox11.Checked == true)
             {
                 deletelist.Add("get-appxpackage *skypeapp* | remove-appxpackage");
             }
@@ -347,7 +348,7 @@ namespace Wi10Tools
 
         private void checkBox12_CheckedChanged(object sender, EventArgs e)
         {
-            if (checkBox1.Checked == true)
+            if (checkBox12.Checked == true)
             {
                 deletelist.Add("get-appxpackage Microsoft.MSPaint | Remove-AppxPackage");
             }
@@ -359,13 +360,13 @@ namespace Wi10Tools
 
         private void checkBox26_CheckedChanged(object sender, EventArgs e)
         {
-            if (checkBox1.Checked == true)
+            if (checkBox26.Checked == true)
             {
-                deletelist.Add("get-appxpackage Microsoft.MixedReality.Portal | Remove-AppxPackage");
+                deletelist.Add("get-appxpackage *Microsoft.MixedReality.Portal* | Remove-AppxPackage");
             }
             else
             {
-                deletelist.Remove("get-appxPackage Microsoft.MixedReality.Portal | Remove-AppxPackage");
+                deletelist.Remove("get-appxPackage *Microsoft.MixedReality.Portal* | Remove-AppxPackage");
             }
         }
     }
